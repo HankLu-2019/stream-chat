@@ -12,10 +12,14 @@ if "messages" not in st.session_state:
 load_dotenv()
 
 # Retrieve the OpenAI API key from environment variables
-openai_api_key = os.getenv('OPENAI_API_KEY')
+# openai_api_key = os.getenv('OPENAI_API_KEY')
+openai_api_key = st.secrets["openai_api_key"]
 
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
+if not openai_api_key:
+    st.info("Please add your OpenAI API key to continue.")
+    st.stop()
 
 if prompt := st.chat_input():
     if not openai_api_key:
