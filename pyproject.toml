@@ -1,0 +1,18 @@
+# pyproject.toml
+
+
+[tool.poetry]
+name = "your_project_name"
+version = "0.1.0"
+description = "A Streamlit chatbot powered by OpenAI"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+openai = "^0.27.0"  # Specify the version you need
+streamlit = "^1.10.0"  # Specify the version you need
+python-dotenv = "^0.19.0"  # For loading environment variables
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
